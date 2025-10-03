@@ -37,6 +37,13 @@ This backend powers all the game logic, user progress tracking, and APIs consume
 * `GET /api/progress/{user_id}` → Retrieve progress for a user.
 
 ---
+🛠️ Tech Stack & Tools
+- **Framework**: Laravel 12 (PHP 8.2)
+- **Database**: MySQL
+- **Package Manager**: Composer
+- **Environment**: XAMPP / Localhost
+- **Version Control**: Git & GitHub
+- **Testing & Debugging**: Postman for API testing
 
 ## ⚙️ Setup (Quick Start)
 
