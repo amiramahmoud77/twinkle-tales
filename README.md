@@ -68,4 +68,6 @@ This backend powers all the game logic, user progress tracking, and APIs consume
 
 * The project is backend-only; frontend will consume these APIs.
 * Designed and built with a focus on **clean architecture** and **API-first approach**.
-e](https://opensource.org/licenses/MIT).
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
