@@ -1,61 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<# Twinkle Tales – Backend APIs
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Twinkle Tales is a **Laravel-based backend project** designed for an interactive educational platform where kids explore space missions, choose roles (like pilot or astronaut), and play quiz-based levels.
+This backend powers all the game logic, user progress tracking, and APIs consumed by the frontend.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Guest Registration with Unique Code** – kids join without email/password, using a generated guest code.
+* **Role Selection** – assign roles (Pilot, Farmer, Astronaut, etc.) with descriptions and role videos.
+* **Quizzes & Levels** – question/answer system for each level, stored in database.
+* **Progress Tracking** – current level and score are stored per user.
+* **API-Ready** – all data is served through clean REST APIs, ready to integrate with any frontend.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📌 API Endpoints
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Authentication
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* `POST /api/register` → Register a new guest user.
+* `POST /api/login` → Login with a guest code.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Roles
 
-## Laravel Sponsors
+* `GET /api/roles` → Fetch all available roles.
+* `POST /api/users/{user}/choose-role` → Assign a role to a user.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Quizzes
 
-### Premium Partners
+* `GET /api/quiz/{level}` → Get quiz questions for a specific level.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Progress
 
-## Contributing
+* `POST /api/progress/update` → Update user progress (level/score).
+* `GET /api/progress/{user_id}` → Retrieve progress for a user.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## ⚙️ Setup (Quick Start)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Clone this repository & install dependencies:
 
-## Security Vulnerabilities
+   ```bash
+   git clone https://github.com/amiramahmoud77/twinkle-tales.git
+   cd twinkle-tales
+   composer install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. Configure your `.env` file for database connection, then run:
 
-## License
+   ```bash
+   php artisan migrate --seed
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. Start the server locally:
+
+   ```bash
+   php artisan serve
+   ```
+
+   API will be available at: `http://127.0.0.1:8000/api/...`
+
+---
+
+## 📝 Notes
+
+* The project is backend-only; frontend will consume these APIs.
+* Designed and built with a focus on **clean architecture** and **API-first approach**.
+e](https://opensource.org/licenses/MIT).
